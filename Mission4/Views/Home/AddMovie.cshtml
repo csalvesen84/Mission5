@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Add Movie";
+}
+
+@model Mission4.Models.Movie
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Add a movie by filling in the information below</p>
+
+<div>
+    <form method="post">
+        <label asp-for="CategoryID">Category:</label>
+        <select asp-for="CategoryID">
+            <option value=0 disabled selected>Select a Category</option>
+            @foreach (Category cat in ViewBag.Categories)
+            {
+                <option value="@cat.CategoryID">@cat.CategoryName</option>
+            }
+        </select><br />
+        <label asp-for="Title">Title:</label>
+        <input asp-for="Title"/><br />
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year"/><br />
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director"/><br />
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating">
+            <option value="" disabled selected>Pick a rating</option>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br />
+        <label asp-for="Edited">Edited:</label>
+        <select asp-for="Edited">
+            <option value="" disabled selected>Edited?</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select><br />
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo" /><br />
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" /><br />
+        <div asp-validation-summary="All" style="color:red;"></div>
+        <button type="submit">Add</button>
+    </form>
+</div>

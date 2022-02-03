@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Movie Added";
+}
+@model Mission4.Models.Movie
+
+<h1>@ViewData["Title"]</h1>
+
+<p>@Model.Title has been added to the collection!</p>
+<p>Click <a asp-controller="Home" asp-action="AddMovie">here</a> to add another!</p>
+
+<p>Click <a asp-controller="Home" asp-action="Movies">here</a> to see all the movies!</p>
